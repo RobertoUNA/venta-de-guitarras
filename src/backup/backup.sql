@@ -174,6 +174,7 @@ CREATE TABLE auditoria (
     datos_anteriores NVARCHAR(MAX),
     datos_nuevos NVARCHAR(MAX)
 );
+GO
 ---------------TABLAS---------------
 
 ---------------VISTAS---------------
@@ -657,4 +658,5 @@ BEGIN
         fecha_hora_fin = GETDATE()
     WHERE id_clase = @id_clase;
 END;
+GO
 ---------------PROCEDIMIENTOS-ALMACENADOS---------------
