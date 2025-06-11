@@ -18,4 +18,3 @@ BEGIN
         WHERE id_producto = @id_producto AND id_tag = @id_tag;
     END
 END;
-GO
