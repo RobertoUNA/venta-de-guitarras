@@ -5,6 +5,5 @@ CREATE TABLE clase (
     descripcion_clase NVARCHAR(200),
     fecha_hora_inicio DATETIME,
     fecha_hora_fin DATETIME,
-    precio_clase DECIMAL(10,2),
     FOREIGN KEY (id_profesor) REFERENCES profesor(id_profesor)
 );

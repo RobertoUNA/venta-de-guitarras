@@ -8,7 +8,7 @@ SELECT
     c.descripcion_clase,
     c.fecha_hora_inicio,
     c.fecha_hora_fin,
-    c.precio_clase
+    (pr.tarifa_hora * DATEDIFF(HOUR, c.fecha_hora_inicio, c.fecha_hora_fin)) AS precio_clase -- Campo calculado
 FROM clase c
 INNER JOIN profesor pr ON c.id_profesor = pr.id_profesor
 INNER JOIN persona pe ON pr.id_persona = pe.id_persona;
