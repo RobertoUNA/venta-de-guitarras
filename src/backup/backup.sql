@@ -153,7 +153,6 @@ CREATE TABLE clase (
     descripcion_clase NVARCHAR(200),
     fecha_hora_inicio DATETIME,
     fecha_hora_fin DATETIME,
-    precio_clase DECIMAL(10,2),
     FOREIGN KEY (id_profesor) REFERENCES profesor(id_profesor)
 );
 
@@ -220,7 +219,7 @@ SELECT
     c.descripcion_clase,
     c.fecha_hora_inicio,
     c.fecha_hora_fin,
-    c.precio_clase
+    (pr.tarifa_hora * DATEDIFF(HOUR, c.fecha_hora_inicio, c.fecha_hora_fin)) AS precio_clase -- Campo calculado
 FROM clase c
 INNER JOIN profesor pr ON c.id_profesor = pr.id_profesor
 INNER JOIN persona pe ON pr.id_persona = pe.id_persona;
@@ -236,11 +235,12 @@ SELECT
     c.descripcion_clase,
     c.fecha_hora_inicio,
     c.fecha_hora_fin,
-    c.precio_clase
+    (pr.tarifa_hora * DATEDIFF(HOUR, c.fecha_hora_inicio, c.fecha_hora_fin)) AS precio_clase -- Campo calculado
 FROM clase c
 INNER JOIN matricula m ON c.id_clase = m.id_clase
 INNER JOIN estudiante es ON m.id_estudiante = es.id_estudiante
-INNER JOIN persona pe ON es.id_persona = pe.id_persona;
+INNER JOIN persona pe ON es.id_persona = pe.id_persona
+INNER JOIN profesor pr ON c.id_profesor = pr.id_profesor; 
 GO
 
 -- Vista: Historial de precios de un producto
