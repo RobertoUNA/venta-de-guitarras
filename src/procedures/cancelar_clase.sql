@@ -1,5 +1,4 @@
- -- Cancelar una clase:
- CREATE PROCEDURE sp_cancelar_clase
+CREATE PROCEDURE sp_cancelar_clase
     @id_clase INT
 AS
 BEGIN
@@ -8,4 +7,3 @@ BEGIN
         fecha_hora_fin = GETDATE()
     WHERE id_clase = @id_clase;
 END;
-GO
