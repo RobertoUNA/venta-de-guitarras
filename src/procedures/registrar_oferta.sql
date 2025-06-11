@@ -11,15 +11,3 @@ BEGIN
     INSERT INTO oferta (nombre_oferta, descripcion_oferta, tipo_oferta, valor_descuento, fecha_inicio, fecha_cierre, estado_oferta)
     VALUES (@nombre_oferta, @descripcion_oferta, @tipo_oferta, @valor_descuento, @fecha_inicio, @fecha_cierre, @estado_oferta);
 END;
-GO 
-
- -- Cancelar una clase:
- CREATE PROCEDURE sp_cancelar_clase
-    @id_clase INT
-AS
-BEGIN
-    UPDATE clase
-    SET descripcion_clase = CONCAT(descripcion_clase, ' (CANCELADA)'),
-        fecha_hora_fin = GETDATE()
-    WHERE id_clase = @id_clase;
-END;
