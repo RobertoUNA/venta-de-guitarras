@@ -50,8 +50,6 @@ CREATE TABLE producto (
     FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
 );
 
--- ELIMINADA: categoria_producto (ya no es necesaria)
-
 CREATE TABLE tipo_guitarra (
     id_tipo_guitarra INT IDENTITY(1,1) PRIMARY KEY,
     nombre NVARCHAR(50) NOT NULL,
