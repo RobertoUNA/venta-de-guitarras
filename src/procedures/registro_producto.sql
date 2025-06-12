@@ -8,6 +8,7 @@ CREATE PROCEDURE sp_registrar_producto
     @tags XML = NULL -- Ejemplo: <tags><tag id="1" /><tag id="2" /></tags>
 AS
 BEGIN
+    SET QUOTED_IDENTIFIER ON;
     SET NOCOUNT ON;
     BEGIN TRY
         BEGIN TRANSACTION;

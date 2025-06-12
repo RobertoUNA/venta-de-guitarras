@@ -483,6 +483,7 @@ CREATE PROCEDURE sp_registrar_producto
     @tags XML = NULL -- Ejemplo: <tags><tag id="1" /><tag id="2" /></tags>
 AS
 BEGIN
+    SET QUOTED_IDENTIFIER ON;
     SET NOCOUNT ON;
     BEGIN TRY
         BEGIN TRANSACTION;
@@ -578,6 +579,7 @@ CREATE PROCEDURE sp_registrar_pedido
     @productos XML -- Ejemplo: <productos><item id_producto="1" cantidad="2" precio_unitario="150.00" /></productos>
 AS
 BEGIN
+    SET QUOTED_IDENTIFIER ON;
     SET NOCOUNT ON;
     BEGIN TRY
         BEGIN TRANSACTION;
